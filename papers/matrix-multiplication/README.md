@@ -8,7 +8,7 @@ Six concrete diagrams with worked examples. The expanded edition pairs the guide
 
 ## Every output entry is a row-column dot product
 
-![ The displayed product is [[19,22,[43,50. For example, its upper-left entry is 1×5+2×7=19, not the entrywise product 1×5. ](figures/01-product.png)
+![The displayed product is 19,22,43,50. For example, its upper-left entry is 1×5+2×7=19, not the entrywise product 1×5.](figures/01-product.png)
 
 The displayed product is [[19,22],[43,50]]. For example, its upper-left entry is 1×5+2×7=19, not the entrywise product 1×5.
 
@@ -16,7 +16,7 @@ The displayed product is [[19,22],[43,50]]. For example, its upper-left entry is
 
 ## Polynomial multiplication has a concrete coefficient pattern
 
-![ The C(2,4) array has eight input products. A cell (i,j) contributes to output coefficient i+j, producing output indices 0 through 4. ](figures/02-polynomial.png)
+![The C(2,4) array has eight input products. A cell (i,j) contributes to output coefficient i+j, producing output indices 0 through 4.](figures/02-polynomial.png)
 
 The C(2,4) array has eight input products. A cell (i,j) contributes to output coefficient i+j, producing output indices 0 through 4.
 
@@ -24,7 +24,7 @@ The C(2,4) array has eight input products. A cell (i,j) contributes to output co
 
 ## Shared variables prevent a full direct sum
 
-![ Left: x·y₀z₀+x·y₁z₁ shares its X variable. Right: x₀y₀z₀+x₁y₁z₁ uses independent variables on all three legs. These are different tensors. ](figures/03-shared-leg.png)
+![Left: x·y₀z₀+x·y₁z₁ shares its X variable. Right: x₀y₀z₀+x₁y₁z₁ uses independent variables on all three legs. These are different tensors.](figures/03-shared-leg.png)
 
 Left: x·y₀z₀+x·y₁z₁ shares its X variable. Right: x₀y₀z₀+x₁y₁z₁ uses independent variables on all three legs. These are different tensors.
 
@@ -32,7 +32,7 @@ Left: x·y₀z₀+x·y₁z₁ shares its X variable. Right: x₀y₀z₀+x₁y�
 
 ## A Fourier filter and a square enforce matching labels
 
-![ For M=3, the left table counts tuples surviving u−v+2(g−h)=0. Surviving terms have weight (g−h)²; weight zero requires g=h and then u=v. ](figures/04-separation.png)
+![For M=3, the left table counts tuples surviving u−v+2(g−h)=0. Surviving terms have weight (g−h)²; weight zero requires g=h and then u=v.](figures/04-separation.png)
 
 For M=3, the left table counts tuples surviving u−v+2(g−h)=0. Surviving terms have weight (g−h)²; weight zero requires g=h and then u=v.
 
@@ -40,7 +40,7 @@ For M=3, the left table counts tuples surviving u−v+2(g−h)=0. Surviving term
 
 ## The three sectors are visible in the support
 
-![ For a=2 and h=1, the source’s shifted-tripling construction uses C(2,4). Two supported terms receive weight +1 and vanish; six remain in three matched sectors. ](figures/05-sectors.png)
+![For a=2 and h=1, the source’s shifted-tripling construction uses C(2,4). Two supported terms receive weight +1 and vanish; six remain in three matched sectors.](figures/05-sectors.png)
 
 For a=2 and h=1, the source’s shifted-tripling construction uses C(2,4). Two supported terms receive weight +1 and vanish; six remain in three matched sectors.
 
@@ -48,7 +48,7 @@ For a=2 and h=1, the source’s shifted-tripling construction uses C(2,4). Two s
 
 ## Compare forced growth with an interpolation ceiling
 
-![ The curves show bounds from the discrete growth argument, not sampled values of an unknown tensor character. At t=3/4, the interpolation ceiling has the same asymptotic power 4/3. ](figures/06-growth.png)
+![The curves show bounds from the discrete growth argument, not sampled values of an unknown tensor character. At t=3/4, the interpolation ceiling has the same asymptotic power 4/3.](figures/06-growth.png)
 
 The curves show bounds from the discrete growth argument, not sampled values of an unknown tensor character. At t=3/4, the interpolation ceiling has the same asymptotic power 4/3.
 

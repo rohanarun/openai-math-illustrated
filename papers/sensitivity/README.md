@@ -8,7 +8,7 @@ Six concrete diagrams with worked examples. The expanded edition pairs the guide
 
 ## A local gap is not a global separation
 
-![ For f=(x₀ AND x₁) OR (x₂ AND x₃), no single flip changes f at zero, but either of two disjoint pair flips does. Exhaustive checking gives global sensitivity 2 and block sensitivity 2. ](figures/01-blocks.png)
+![For f=(x₀ AND x₁) OR (x₂ AND x₃), no single flip changes f at zero, but either of two disjoint pair flips does. Exhaustive checking gives global sensitivity 2 and block sensitivity 2.](figures/01-blocks.png)
 
 For f=(x₀ AND x₁) OR (x₂ AND x₃), no single flip changes f at zero, but either of two disjoint pair flips does. Exhaustive checking gives global sensitivity 2 and block sensitivity 2.
 
@@ -16,7 +16,7 @@ For f=(x₀ AND x₁) OR (x₂ AND x₃), no single flip changes f at zero, but 
 
 ## Nested predicates create distinct boundaries
 
-![ The curves accept distances at most 0, 1, and 2. Their vertical offsets separate the drawing; each predicate itself takes only the values zero and one. ](figures/02-thresholds.png)
+![The curves accept distances at most 0, 1, and 2. Their vertical offsets separate the drawing; each predicate itself takes only the values zero and one.](figures/02-thresholds.png)
 
 The curves accept distances at most 0, 1, and 2. Their vertical offsets separate the drawing; each predicate itself takes only the values zero and one.
 
@@ -24,7 +24,7 @@ The curves accept distances at most 0, 1, and 2. Their vertical offsets separate
 
 ## A tournament gives every pair of rows one direction
 
-![ This five-row cyclic tournament is a small structural illustration. Each row has two outgoing neighbors. It is not the paper’s labeled tournament with k=2M²+1 and M≥3. ](figures/03-tournament.png)
+![This five-row cyclic tournament is a small structural illustration. Each row has two outgoing neighbors. It is not the paper’s labeled tournament with k=2M²+1 and M≥3.](figures/03-tournament.png)
 
 This five-row cyclic tournament is a small structural illustration. Each row has two outgoing neighbors. It is not the paper’s labeled tournament with k=2M²+1 and M≥3.
 
@@ -32,7 +32,7 @@ This five-row cyclic tournament is a small structural illustration. Each row has
 
 ## Track joint sensitivity alongside ordinary sensitivity
 
-![ The coefficient matrix displays the four inequalities from Proposition 3.1 at M=81 and r=9. Entries multiply previous-level upper bounds; they are not measured sensitivities. ](figures/04-profiles.png)
+![The coefficient matrix displays the four inequalities from Proposition 3.1 at M=81 and r=9. Entries multiply previous-level upper bounds; they are not measured sensitivities.](figures/04-profiles.png)
 
 The coefficient matrix displays the four inequalities from Proposition 3.1 at M=81 and r=9. Entries multiply previous-level upper bounds; they are not measured sensitivities.
 
@@ -40,7 +40,7 @@ The coefficient matrix displays the four inequalities from Proposition 3.1 at M=
 
 ## An exponential numerator eventually beats a quadratic denominator
 
-![ The plotted source lower bound 2^d/[4(d+2)² exceeds one at d=9 and tends to infinity. The construction dimension also grows enormously with the required parameter choices. ](figures/05-ratio.png)
+![The plotted source lower bound 2^d/4(d+2)² exceeds one at d=9 and tends to infinity. The construction dimension also grows enormously with the required parameter choices.](figures/05-ratio.png)
 
 The plotted source lower bound 2^d/[4(d+2)²] exceeds one at d=9 and tends to infinity. The construction dimension also grows enormously with the required parameter choices.
 
@@ -48,7 +48,7 @@ The plotted source lower bound 2^d/[4(d+2)²] exceeds one at d=9 and tends to in
 
 ## Composition multiplies disjoint block witnesses
 
-![ Each color labels one Cartesian-product block. Two disjoint outer blocks and two disjoint inner blocks give four pairwise disjoint raw-coordinate blocks. ](figures/06-composition.png)
+![Each color labels one Cartesian-product block. Two disjoint outer blocks and two disjoint inner blocks give four pairwise disjoint raw-coordinate blocks.](figures/06-composition.png)
 
 Each color labels one Cartesian-product block. Two disjoint outer blocks and two disjoint inner blocks give four pairwise disjoint raw-coordinate blocks.
 

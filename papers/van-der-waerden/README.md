@@ -8,7 +8,7 @@ Six concrete diagrams with worked examples. The expanded edition pairs the guide
 
 ## Read the quantifiers through an eight-position example
 
-![ An exhaustively checked coloring of eight positions avoids all monochromatic three-term progressions. The lower rows illustrate three possible spacings; all spacings are checked by the script. ](figures/01-coloring.png)
+![An exhaustively checked coloring of eight positions avoids all monochromatic three-term progressions. The lower rows illustrate three possible spacings; all spacings are checked by the script.](figures/01-coloring.png)
 
 An exhaustively checked coloring of eight positions avoids all monochromatic three-term progressions. The lower rows illustrate three possible spacings; all spacings are checked by the script.
 
@@ -16,7 +16,7 @@ An exhaustively checked coloring of eight positions avoids all monochromatic thr
 
 ## A circle has no cut; a coordinate interval does
 
-![ The residues 0, 5, 10, 2, 7 follow a constant step modulo 13. Representatives in an interval jump at the cut; their unwrapped values 0, 5, 10, 15, 20 remain affine. ](figures/02-circle.png)
+![The residues 0, 5, 10, 2, 7 follow a constant step modulo 13. Representatives in an interval jump at the cut; their unwrapped values 0, 5, 10, 15, 20 remain affine.](figures/02-circle.png)
 
 The residues 0, 5, 10, 2, 7 follow a constant step modulo 13. Representatives in an interval jump at the cut; their unwrapped values 0, 5, 10, 15, 20 remain affine.
 
@@ -24,7 +24,7 @@ The residues 0, 5, 10, 2, 7 follow a constant step modulo 13. Representatives in
 
 ## Squared norm turns a line into a quadratic
 
-![ For the toy affine points (j,1), the squared norm is j²+1. A circle of a fixed radius meets this line at at most two points. ](figures/03-norm.png)
+![For the toy affine points (j,1), the squared norm is j²+1. A circle of a fixed radius meets this line at at most two points.](figures/03-norm.png)
 
 For the toy affine points (j,1), the squared norm is j²+1. A circle of a fixed radius meets this line at at most two points.
 
@@ -32,7 +32,7 @@ For the toy affine points (j,1), the squared norm is j²+1. A circle of a fixed 
 
 ## A dilation removes troublesome small periods
 
-![ In this arithmetic example, λ=144 contains the full powers of 2 and 3 needed for every h≤24. The reduced denominator h/gcd(h,144) is either 1 or greater than 4. ](figures/04-periods.png)
+![In this arithmetic example, λ=144 contains the full powers of 2 and 3 needed for every h≤24. The reduced denominator h/gcd(h,144) is either 1 or greater than 4.](figures/04-periods.png)
 
 In this arithmetic example, λ=144 contains the full powers of 2 and 3 needed for every h≤24. The reduced denominator h/gcd(h,144) is either 1 or greater than 4.
 
@@ -40,7 +40,7 @@ In this arithmetic example, λ=144 contains the full powers of 2 and 3 needed fo
 
 ## Many bad events can still have total probability below one
 
-![ The plotted ratio (k^0.9 log k)/k^0.95 tends to zero. It compares exponent scales from the proof overview, omitting constants; it is not a computed probability of success. ](figures/05-probability.png)
+![The plotted ratio (k^0.9 log k)/k^0.95 tends to zero. It compares exponent scales from the proof overview, omitting constants; it is not a computed probability of success.](figures/05-probability.png)
 
 The plotted ratio (k^0.9 log k)/k^0.95 tends to zero. It compares exponent scales from the proof overview, omitting constants; it is not a computed probability of success.
 
@@ -48,7 +48,7 @@ The plotted ratio (k^0.9 log k)/k^0.95 tends to zero. It compares exponent scale
 
 ## Why the conclusion is stronger than beating one exponential
 
-![ The two-color lower-bound expression has logarithmic kth-root scale c log k. The constant line log 2 represents the kth root of 2^k. The source theorem applies only beyond its unspecified threshold. ](figures/06-growth.png)
+![The two-color lower-bound expression has logarithmic kth-root scale c log k. The constant line log 2 represents the kth root of 2^k. The source theorem applies only beyond its unspecified threshold.](figures/06-growth.png)
 
 The two-color lower-bound expression has logarithmic kth-root scale c log k. The constant line log 2 represents the kth root of 2^k. The source theorem applies only beyond its unspecified threshold.
 

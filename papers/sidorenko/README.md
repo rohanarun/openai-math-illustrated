@@ -8,7 +8,7 @@ Six concrete diagrams with worked examples. The expanded edition pairs the guide
 
 ## Count maps, including repeated vertices
 
-![ For a three-vertex path mapped into a three-leaf star, there are 12 homomorphisms. Its density 12/4³ exceeds the benchmark (6/4²)². ](figures/01-homomorphisms.png)
+![For a three-vertex path mapped into a three-leaf star, there are 12 homomorphisms. Its density 12/4³ exceeds the benchmark (6/4²)².](figures/01-homomorphisms.png)
 
 For a three-vertex path mapped into a three-leaf star, there are 12 homomorphisms. Its density 12/4³ exceeds the benchmark (6/4²)².
 
@@ -16,7 +16,7 @@ For a three-vertex path mapped into a three-leaf star, there are 12 homomorphism
 
 ## The actual pattern is a point-face incidence graph
 
-![ Each dark cell is an edge of the source pattern. Every face column has three entries; the 13 point rows and 22 face columns represent 35 distinct vertices. ](figures/02-incidence.png)
+![Each dark cell is an edge of the source pattern. Every face column has three entries; the 13 point rows and 22 face columns represent 35 distinct vertices.](figures/02-incidence.png)
 
 Each dark cell is an edge of the source pattern. Every face column has three entries; the 13 point rows and 22 face columns represent 35 distinct vertices.
 
@@ -24,7 +24,7 @@ Each dark cell is an edge of the source pattern. Every face column has three ent
 
 ## Averaging one random sign retains a four-incidence interaction
 
-![ Faces 0 and 1 share points 0 and 1. Averaging the product over an independent uniform sign η removes the linear terms and retains 1+AB. ](figures/03-parity.png)
+![Faces 0 and 1 share points 0 and 1. Averaging the product over an independent uniform sign η removes the linear terms and retains 1+AB.](figures/03-parity.png)
 
 Faces 0 and 1 share points 0 and 1. Averaging the product over an independent uniform sign η removes the linear terms and retains 1+AB.
 
@@ -32,7 +32,7 @@ Faces 0 and 1 share points 0 and 1. Averaging the product over an independent un
 
 ## A kernel is a table of edge probabilities
 
-![ A two-type toy kernel has within-type probability 0.8 and between-type probability 0.2. Its edge mean is 0.5, but its four-cycle density is 0.0706 rather than 0.0625. ](figures/04-kernel.png)
+![A two-type toy kernel has within-type probability 0.8 and between-type probability 0.2. Its edge mean is 0.5, but its four-cycle density is 0.0706 rather than 0.0625.](figures/04-kernel.png)
 
 A two-type toy kernel has within-type probability 0.8 and between-type probability 0.2. Its edge mean is 0.5, but its four-cycle density is 0.0706 rather than 0.0625.
 
@@ -40,7 +40,7 @@ A two-type toy kernel has within-type probability 0.8 and between-type probabili
 
 ## Small probability does not imply a small weighted contribution
 
-![ A toy event has probability 1/q but weight q², so its contribution to the expectation is q. The two curves deliberately move in opposite directions. ](figures/05-weighted-tail.png)
+![A toy event has probability 1/q but weight q², so its contribution to the expectation is q. The two curves deliberately move in opposite directions.](figures/05-weighted-tail.png)
 
 A toy event has probability 1/q but weight q², so its contribution to the expectation is q. The two curves deliberately move in opposite directions.
 
@@ -48,7 +48,7 @@ A toy event has probability 1/q but weight q², so its contribution to the expec
 
 ## One strict deficit can be amplified, with a density caveat
 
-![ If an initial normalized pattern-density ratio were 0.9, independent tensor powers would give 0.9^m. The displayed 0.9 is illustrative, not a measured ratio for the source host. ](figures/06-amplification.png)
+![If an initial normalized pattern-density ratio were 0.9, independent tensor powers would give 0.9^m. The displayed 0.9 is illustrative, not a measured ratio for the source host.](figures/06-amplification.png)
 
 If an initial normalized pattern-density ratio were 0.9, independent tensor powers would give 0.9^m. The displayed 0.9 is illustrative, not a measured ratio for the source host.
 

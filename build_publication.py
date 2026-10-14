@@ -60,7 +60,7 @@ for slug,meta in manifest['papers'].items():
  readme+=f"[Illustrated guide ({len(guide)} pages)](output/pdf/illustrated-guide.pdf) · [Expanded edition ({len(combined)} pages)](output/pdf/expanded-paper.pdf) · [Original source]({meta['source_url']})\n\n"
  readme+='Six concrete diagrams with worked examples. The expanded edition pairs the guide with every original manuscript page; the original proof and bibliography retain their numbering. This is an independent explanation, not an official OpenAI revision or independent theorem certification.\n\n'
  for c in p['chapters']:
-  readme+='## '+c['title']+'\n\n![ '+c['caption'].replace(']','')+' ](figures/'+c['figure']+'.png)\n\n'+c['caption']+'\n\n**Where it fits:** '+c['source']+'\n\n'
+  readme+='## '+c['title']+'\n\n![ '+c['caption'].replace('[','').replace(']','')+' ](figures/'+c['figure']+'.png)\n\n'+c['caption']+'\n\n**Where it fits:** '+c['source']+'\n\n'
  readme+='## Read and reproduce\n\nThe PDF develops each example step by step and explains what it does and does not establish. Editable prose is in [content.json](content.json); the [generated LaTeX](illustrated-guide.tex) is also included. Original files are under [original/](original/), bound by the collection [source manifest](../../source-manifest.json). See the [collection README](../../README.md) for generation and validation commands.\n'
  (d/'README.md').write_text(readme)
  print(slug,report[slug],flush=True)

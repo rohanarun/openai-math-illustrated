@@ -8,7 +8,7 @@ Six concrete diagrams with worked examples. The expanded edition pairs the guide
 
 ## Count unordered pairs and exclude the diagonals
 
-![ A 3×3 integer grid has six horizontal and six vertical unit pairs. Diagonal neighbors have distance √2 and are excluded. ](figures/01-grid.png)
+![A 3×3 integer grid has six horizontal and six vertical unit pairs. Diagonal neighbors have distance √2 and are excluded.](figures/01-grid.png)
 
 A 3×3 integer grid has six horizontal and six vertical unit pairs. Diagonal neighbors have distance √2 and are excluded.
 
@@ -16,7 +16,7 @@ A 3×3 integer grid has six horizontal and six vertical unit pairs. Diagonal nei
 
 ## Turn distance equations into circle incidences
 
-![ The unit circles centered at (0,0) and (1,0) meet at (1/2, ±√3/2). Those are the two possible centers one unit from both points. ](figures/02-circles.png)
+![The unit circles centered at (0,0) and (1,0) meet at (1/2, ±√3/2). Those are the two possible centers one unit from both points.](figures/02-circles.png)
 
 The unit circles centered at (0,0) and (1,0) meet at (1/2, ±√3/2). Those are the two possible centers one unit from both points.
 
@@ -24,7 +24,7 @@ The unit circles centered at (0,0) and (1,0) meet at (1/2, ±√3/2). Those are 
 
 ## A random edge does not produce a uniform random vertex
 
-![ In a four-vertex path, the endpoint marginal of a uniformly chosen directed edge is (1,2,2,1)/6. The middle vertices are twice as likely as the endpoints. ](figures/03-edge-law.png)
+![In a four-vertex path, the endpoint marginal of a uniformly chosen directed edge is (1,2,2,1)/6. The middle vertices are twice as likely as the endpoints.](figures/03-edge-law.png)
 
 In a four-vertex path, the endpoint marginal of a uniformly chosen directed edge is (1,2,2,1)/6. The middle vertices are twice as likely as the endpoints.
 
@@ -32,7 +32,7 @@ In a four-vertex path, the endpoint marginal of a uniformly chosen directed edge
 
 ## Sharing a center creates dependence between neighbors
 
-![ Left: choose a degree-weighted center, then two neighbors independently conditional on that center. Right: choose endpoints independently from their common marginal. The matrices differ. ](figures/04-wedge.png)
+![Left: choose a degree-weighted center, then two neighbors independently conditional on that center. Right: choose endpoints independently from their common marginal. The matrices differ.](figures/04-wedge.png)
 
 Left: choose a degree-weighted center, then two neighbors independently conditional on that center. Right: choose endpoints independently from their common marginal. The matrices differ.
 
@@ -40,7 +40,7 @@ Left: choose a degree-weighted center, then two neighbors independently conditio
 
 ## A rectangle cancels shared multiplicative factors
 
-![ For the toy ratios λᵢⱼ=uᵢ/vⱼ, multiplying opposite corners and dividing gives one exactly. The source obtains small height for analogous rectangle products. ](figures/05-rectangle.png)
+![For the toy ratios λᵢⱼ=uᵢ/vⱼ, multiplying opposite corners and dividing gives one exactly. The source obtains small height for analogous rectangle products.](figures/05-rectangle.png)
 
 For the toy ratios λᵢⱼ=uᵢ/vⱼ, multiplying opposite corners and dividing gives one exactly. The source obtains small height for analogous rectangle products.
 
@@ -48,7 +48,7 @@ For the toy ratios λᵢⱼ=uᵢ/vⱼ, multiplying opposite corners and dividing
 
 ## Independent square-root signs provide an obstruction
 
-![ Over the rationals, √2 and √3 admit four independent sign choices in their common field. For √2 and √8, the relation √8=2√2 allows only two linked choices. ](figures/06-radicals.png)
+![Over the rationals, √2 and √3 admit four independent sign choices in their common field. For √2 and √8, the relation √8=2√2 allows only two linked choices.](figures/06-radicals.png)
 
 Over the rationals, √2 and √3 admit four independent sign choices in their common field. For √2 and √8, the relation √8=2√2 allows only two linked choices.
 
