@@ -1,0 +1,9 @@
+tmp/
+preview/
+__pycache__/
+*.pyc
+*.log
+*.aux
+*.toc
+*.out
+.DS_Store

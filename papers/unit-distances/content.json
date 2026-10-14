@@ -1,0 +1,78 @@
+{
+  "title": "How many pairs of points can be exactly one unit apart?",
+  "subtitle": "An illustrated reader for the planar unit-distance upper bound",
+  "source_title": "A power saving for planar unit distances",
+  "intro": "Place finitely many distinct points in the plane and connect pairs at distance exactly one. A square grid supplies many such pairs, but a cleverly arranged configuration might supply more. The problem asks for an upper bound valid for every configuration, not just the grid.\n\nThe source claims a fixed improvement below the exponent $4/3$. It argues by contradiction: if configurations approach that exponent arbitrarily closely, their incidence structure would force an impossible algebraic pattern. The route passes through probability laws, information, arithmetic height, and independent signs of square roots.\n\nThose topics can sound remote from a picture of points. The diagrams below trace why each enters: circles encode unit pairs, sampling laws describe which local views are typical, height controls arithmetic size, and a rectangle of ratios packages the final obstruction. The small examples make these objects concrete without pretending to reproduce the full asymptotic contradiction.",
+  "claim": "Theorem 1.1 states that there are absolute constants $C>0$ and $1\\le\\beta<4/3$ such that $u(n)\\le Cn^\\beta$ for every nonnegative integer $n$, where $u(n)$ is the largest possible number of unordered unit-distance pairs among $n$ distinct planar points. The source establishes existence of a fixed gap; it does not give a numerical value of that gap in this theorem.",
+  "chapters": [
+    {
+      "title": "Count unordered pairs and exclude the diagonals",
+      "figure": "01-grid",
+      "caption": "A 3×3 integer grid has six horizontal and six vertical unit pairs. Diagonal neighbors have distance √2 and are excluded.",
+      "body": "There are $\\binom92=36$ unordered pairs among nine points, but only twelve are at distance exactly one. In each of three rows there are two horizontal unit segments, giving six. The same count in columns gives six vertical segments. Diagonals are too long.\n\nFor a $k\\times k$ grid, the same argument gives $2k(k-1)$ unit pairs among $n=k^2$ points. This is a construction lower bound: the maximum $u(n)$ is at least this count at those sizes. It is not an upper bound for arbitrary planar configurations.\n\nThe source counts unordered pairs in its headline theorem. Its incidence representation later uses ordered pairs and therefore counts each geometric unit segment twice when both copies of the point set are retained. A factor of two changes a constant, not the exponent, but keeping the conventions straight prevents mistaken numerical examples.\n\n\\paragraph{Why an exponent matters.} A bound $Cn^{4/3-\\delta}$ with fixed $\\delta>0$ eventually beats any fixed multiple of $n^{4/3}$. The statement concerns growth for large $n$, not a claim that the formula accurately predicts the maximum for nine points. Neither the constant nor an explicit gap is derived by the grid illustration.",
+      "source": "Section 1: u(X), u(n), and Theorem 1.1."
+    },
+    {
+      "title": "Turn distance equations into circle incidences",
+      "figure": "02-circles",
+      "caption": "The unit circles centered at (0,0) and (1,0) meet at (1/2, ±√3/2). Those are the two possible centers one unit from both points.",
+      "body": "A point $p$ is one unit from a center $q$ precisely when it lies on the radius-one circle around $q$. This turns pair counting into point-curve incidence counting: count the occasions when a point lies on one of the circles.\n\nTwo distinct circles meet in at most two points. Reversing the viewpoint, two distinct points have at most two common unit-circle centers. In the example, solving $x^2+y^2=1$ and $(x-1)^2+y^2=1$ gives $x=1/2$, then $y=\\pm\\sqrt3/2$.\n\nThese bounded intersections help control the incidence graph. The source samples circles to cut the plane into regions meeting relatively few remaining circles, then keeps a graph piece with useful degree and expansion properties. Its handling of boundaries ensures that retained points are assigned consistently.\n\nThe elementary two-circle fact does not alone yield the claimed power saving. It supports the incidence reductions that make the later information and algebraic arguments possible. In particular, replacing the carefully retained graph by an arbitrary subset can change its sampling laws and destroy the properties used afterward.",
+      "source": "Section 2.2: point-circle incidences and the cutting construction."
+    },
+    {
+      "title": "A random edge does not produce a uniform random vertex",
+      "figure": "03-edge-law",
+      "caption": "In a four-vertex path, the endpoint marginal of a uniformly chosen directed edge is (1,2,2,1)/6. The middle vertices are twice as likely as the endpoints.",
+      "body": "Choose one of the six directed edges of a four-vertex path uniformly, then look at its first vertex. A vertex occurs once for each incident edge, so its probability is proportional to its degree. The two end vertices have probability $1/6$ and the two middle vertices $2/6$.\n\nChoosing one of the four vertices uniformly would instead give probability $1/4$ each. These experiments are different. An argument that resamples a vertex must preserve the required marginal, not substitute whichever distribution seems convenient.\n\nThe source consistently starts with a uniform retained edge. Point and center marginals are degree weighted. A prediction is sampled from the point marginal conditioned on agreeing with recorded test outcomes. Averaging over those histories preserves the original point marginal, an elementary conditional-probability fact with important consequences here.\n\nThe short-history argument must also keep a fresh test independent of the entire existing experiment. Allowing that test to depend on a prediction after seeing it would change the claim. The small path teaches the probability bookkeeping; it does not establish the source's low-information or prediction bounds for its dense incidence pieces.",
+      "source": "Sections 2-3: retained-edge law and conditional-copy prediction."
+    },
+    {
+      "title": "Sharing a center creates dependence between neighbors",
+      "figure": "04-wedge",
+      "caption": "Left: choose a degree-weighted center, then two neighbors independently conditional on that center. Right: choose endpoints independently from their common marginal. The matrices differ.",
+      "body": "A wedge is a two-edge path with a specified center. The endpoints are independent once that center is known, but usually not independent after the center is hidden. Both endpoints carry information about the same latent choice.\n\nFor the toy path, first choose center $c$ with probability $\\deg(c)/6$, then select two neighbors with replacement, each uniformly from that center's neighbors. The joint probability is\n\\[P(i,j)=\\sum_c\\frac{\\deg(c)}6\\frac{A_{ci}}{\\deg(c)}\\frac{A_{cj}}{\\deg(c)},\\]\nwhere $A$ is the adjacency matrix. Summing a row or column recovers the degree-weighted endpoint marginal. Repeated endpoints are allowed in this sampling experiment.\n\nMutual information compares this joint law with the product of its marginals. The expression is\\[\\sum_{i,j}P(i,j)\\log\\frac{P(i,j)}{P(i)P(j)},\\]omitting zero terms. Zero would mean independence. The displayed toy has a positive value computed from its finite table.\n\nThe source proves a much more specific estimate, $o(\\log t)$, for wedge endpoints in the retained configurations along its contradiction sequence. Our four-vertex calculation does not model that limit. It explains what quantity is being bounded and why conditional independence is not enough by itself.",
+      "source": "Section 2: wedge law and mutual information; Section 3 prediction."
+    },
+    {
+      "title": "A rectangle cancels shared multiplicative factors",
+      "figure": "05-rectangle",
+      "caption": "For the toy ratios λᵢⱼ=uᵢ/vⱼ, multiplying opposite corners and dividing gives one exactly. The source obtains small height for analogous rectangle products.",
+      "body": "Suppose a table has entries $\\lambda_{ij}=u_i/v_j$. Around a two-by-two rectangle,\n\\[\\frac{\\lambda_{ij}\\lambda_{i'j'}}{\\lambda_{ij'}\\lambda_{i'j}}=1.\\]\nEvery row factor and every column factor cancels. Taking logarithms turns this into cancellation of alternating sums. This is why rectangles can detect whether pairwise quantities nearly split into endpoint contributions.\n\nThe source uses ratios of complex unit-edge jumps through selected centers. It builds a dense pair graph in which individual ratios have large arithmetic height, while every retained rectangle product has height small relative to a growing scale. The exact cancellation in our rational table is a teaching model for that comparison, not a unit-distance configuration realizing the source's hypotheses.\n\nArithmetic height measures algebraic size across all normalized absolute values of a number field. It is not Euclidean distance, decimal length alone, or the logarithm of one complex modulus. The product formula connects these different absolute values.\n\nA key extraction step removes errors in a height-weighted measure before choosing a common height band. As in any weighted average, rare but very large errors cannot be dismissed by their probability alone.",
+      "source": "Sections 4-7: product formula, scale, and height-weighted rectangle extraction."
+    },
+    {
+      "title": "Independent square-root signs provide an obstruction",
+      "figure": "06-radicals",
+      "caption": "Over the rationals, √2 and √3 admit four independent sign choices in their common field. For √2 and √8, the relation √8=2√2 allows only two linked choices.",
+      "body": "The expression $\\sqrt2$ has two algebraic conjugates, $+\\sqrt2$ and $-\\sqrt2$. In the field containing both $\\sqrt2$ and $\\sqrt3$, their signs can be changed independently while fixing rational numbers. The four plotted points encode those choices.\n\nBy contrast, $\\sqrt8=2\\sqrt2$. Any transformation fixing rational numbers and preserving multiplication must flip those two radicals together. There are only two possibilities, on the displayed line. Writing two square-root symbols does not guarantee two independent signs.\n\nIn the final source argument, radicals arise from pair-distance identities. The proof constructs valuations that are odd on one radicand and zero on the others, ensuring the needed independence over the relevant coefficient field. It then changes an unused radical's sign in differentiated equations and obtains a contradiction. Excluding popular unit circles removes a geometric case that would interfere with that independence.\n\nThese rational examples explain the logic of independent versus linked radicals. They do not prove independence for the source's much larger field or its chosen points. Those algebraic and generic-position obligations are the core of Section 8.\n\nThe conclusion rules out all sequences approaching the exponent $4/3$ closely enough, which yields an unspecified fixed power saving.",
+      "source": "Section 8: generic configurations, valuations, and radical sign changes."
+    }
+  ],
+  "glossary": [
+    [
+      "Incidence",
+      "A point lies on a specified curve."
+    ],
+    [
+      "Degree-weighted marginal",
+      "A vertex probability proportional to the number of incident edges."
+    ],
+    [
+      "Wedge",
+      "Two edges sharing a sampled center."
+    ],
+    [
+      "Mutual information",
+      "Relative entropy of a joint distribution from the product of its marginals."
+    ],
+    [
+      "Arithmetic height",
+      "A measure of algebraic size using all normalized absolute values."
+    ],
+    [
+      "Independent radicals",
+      "Square roots whose signs can be changed independently over a specified base field."
+    ]
+  ],
+  "limits": "The checked grid, probability tables, and rational rectangle identity are educational examples. This guide does not verify the cutting bounds, prediction theorem, height extraction, generic-position argument, or radical-independence proof. No numerical value of the source's exponent improvement is invented, and no comparison with a claimed current best lower bound is needed for this reading edition."
+}

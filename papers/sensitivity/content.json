@@ -1,0 +1,78 @@
+{
+  "title": "One switch versus a whole group of switches",
+  "subtitle": "An illustrated reader for sensitivity and block sensitivity",
+  "source_title": "A superquadratic separation between sensitivity and block sensitivity",
+  "intro": "A Boolean function takes a string of zeros and ones and returns a single zero or one. Sensitivity asks how many individual input bits can reverse that answer at a given input. Block sensitivity allows groups of bits to flip together, but requires the groups to be pairwise disjoint.\n\nThe maximum over all inputs is crucial. A function may be completely insensitive at the all-zero string yet very sensitive somewhere else. A proposed global separation must compare the two global quantities, not just convenient values at one input.\n\nThe source claims that block sensitivity can grow faster than every constant multiple of sensitivity squared. Its construction keeps many disjoint ways to activate the function while controlling individual-bit changes at all inputs. Nested predicates and a directed tournament organize that control; tracking joint changes of two predicates closes the recursive argument.",
+  "claim": "Theorem 1.1 states that for every $C>0$ there is a nonconstant total Boolean function $f$ with $\\operatorname{bs}(f)>Cs(f)^2$. More precisely, the construction yields\n\\[\\frac{\\operatorname{bs}(f)}{s(f)^2}\\ge\\frac{2^d}{4(d+2)^2}\\]\nfor every integer depth $d\\ge1$, with sufficiently large construction parameters chosen afterward. The source also amplifies a fixed seed into a power separation with exponent greater than two. This does not contradict the polynomial Sensitivity Conjecture resolved by Huang.",
+  "chapters": [
+    {
+      "title": "A local gap is not a global separation",
+      "figure": "01-blocks",
+      "caption": "For f=(x₀ AND x₁) OR (x₂ AND x₃), no single flip changes f at zero, but either of two disjoint pair flips does. Exhaustive checking gives global sensitivity 2 and block sensitivity 2.",
+      "body": "At input $0000$, the displayed function outputs zero. Changing one bit cannot make either AND pair true, so $s(f,0000)=0$. Flipping bits $\\{0,1\\}$ together makes the first pair true; flipping $\\{2,3\\}$ makes the second pair true. The blocks are disjoint, so $\\operatorname{bs}(f,0000)=2$.\n\nThat sounds like a large contrast until we ask for the maximum sensitivity across every input. At $1010$, either currently missing partner can activate one of the pairs. Two individual bits are sensitive there. Exhaustive enumeration of all sixteen inputs confirms $s(f)=2$ and $\\operatorname{bs}(f)=2$.\n\nThe example therefore supplies intuition for cooperative flips but no superquadratic separation. Dividing the local block count by the squared local sensitivity at zero would be meaningless for the theorem.\n\n\\paragraph{Disjointness matters.} Blocks cannot share raw input coordinates. Otherwise many overlapping descriptions of the same decisive change would artificially inflate the measure. The source explicitly builds disjoint block families and separately bounds sensitivity at every input, including inputs far from its convenient all-zero witness.",
+      "source": "Section 1 definitions; Section 2.4 disjoint blocks at zero."
+    },
+    {
+      "title": "Nested predicates create distinct boundaries",
+      "figure": "02-thresholds",
+      "caption": "The curves accept distances at most 0, 1, and 2. Their vertical offsets separate the drawing; each predicate itself takes only the values zero and one.",
+      "body": "A predicate is a yes-or-no test. A family is nested when every input accepted by a stronger test is also accepted by a weaker one. For example, being within distance zero of a center implies being within distance one, which implies being within distance two.\n\nThe source starts with separated centers in a Boolean cube and tests the Hamming distance to the nearest center. Hamming distance counts differing bits. Flipping one raw bit changes that nearest-center distance by at most one: this follows from the triangle inequality, in both directions.\n\nDistinct integer radii give distinct boundaries. A one-unit distance change cannot cross two such boundaries at once, so the initial joint sensitivities vanish. Joint sensitivity counts bits that reverse two distinct predicates simultaneously from the same initial value.\n\nThe nesting is in the \\emph{predicate index}, not in the input coordinates. These predicates need not be monotone Boolean functions under changing zeros to ones. Confusing those two meanings of monotonicity would invalidate the argument.\n\nThe plotted distance axis is a summary of a high-dimensional cube, not its geometric embedding. The source's separated centers are chosen so local sensitivity can also be bounded near each acceptance region.",
+      "source": "Sections 2.1 and 2.3: initial predicates and Lemma 2.2."
+    },
+    {
+      "title": "A tournament gives every pair of rows one direction",
+      "figure": "03-tournament",
+      "caption": "This five-row cyclic tournament is a small structural illustration. Each row has two outgoing neighbors. It is not the paper’s labeled tournament with k=2M²+1 and M≥3.",
+      "body": "A tournament orients every edge of a complete graph: for two different rows, exactly one points toward the other. The picture uses five rows so the entire orientation remains visible. It is an indexing device, not a competition simulation.\n\nIn the source, each row contains several child inputs. A clause for row $i$ requires all targets in its own row to accept. For every outgoing edge $i\\to j$, it also requires a chosen child in row $j$ to fail a weaker predicate. The edge label specifies which child is tested. The parent accepts if any row clause holds.\n\nAll conditions within one clause use distinct children. One raw-bit flip therefore changes at most one condition of that clause. If a rejecting clause becomes true after one flip, it must have had exactly one failing condition beforehand.\n\nFor clauses failing only one gate, the induced tournament has outdegree at most one. If there are $m$ such clauses, counting edges gives $m(m-1)/2\\le m$, hence $m\\le3$. The source combines this observation with a forbidden-label condition that controls the clauses failing one target.\n\nThe directed structure limits candidate repairs. Random labels alone are not the entire sensitivity proof.",
+      "source": "Sections 2.2 and 3: recursive clauses and candidate-clause counting."
+    },
+    {
+      "title": "Track joint sensitivity alongside ordinary sensitivity",
+      "figure": "04-profiles",
+      "caption": "The coefficient matrix displays the four inequalities from Proposition 3.1 at M=81 and r=9. Entries multiply previous-level upper bounds; they are not measured sensitivities.",
+      "body": "The recursion tracks four quantities: ordinary sensitivity at output zero and one, $S_0,S_1$, and joint sensitivity at output zero and one, $J_0,J_1$. The row labeled $S_0$ reads\n\\[S_0^{\\rm new}\\le16S_0^{\\rm old}+S_1^{\\rm old}+3J_1^{\\rm old}.\\]\nThe other rows show the remaining inequalities. Every coefficient is nonnegative, which permits upper bounds to be propagated consistently.\n\nWhy introduce $J$? Repairing a gate in a row whose strongest predicate already accepts may require both that strongest predicate and a weaker one to reverse. Counting all such flips by ordinary sensitivity would lose the saving. Joint sensitivity records the more restrictive event.\n\nThe source chooses a very large $M$ relative to the intended depth, normalizes the four sequences, and proves a coupled induction. The displayed $M=81$ satisfies the stated size requirement at depth one; it is not a parameter choice for arbitrarily deep recursion.\n\nThese are upper-bound recurrences. Equality is neither asserted nor needed. At the final level there is only one parent predicate, so its actual joint profiles vanish even if a generic propagated upper bound remains positive.",
+      "source": "Proposition 3.1 and Section 4 normalization."
+    },
+    {
+      "title": "An exponential numerator eventually beats a quadratic denominator",
+      "figure": "05-ratio",
+      "caption": "The plotted source lower bound 2^d/[4(d+2)²] exceeds one at d=9 and tends to infinity. The construction dimension also grows enormously with the required parameter choices.",
+      "body": "The source builds many disjoint sensitive blocks at zero and bounds global sensitivity everywhere. After an OR of disjoint copies balances the zero and one cases, its estimates give\n\\[s(f)\\le2(d+2)M^{d+1},\\qquad \\operatorname{bs}(f,0)\\ge M^2(2M^2+1)^d.\\]\nDividing yields at least $2^d/[4(d+2)^2]$. The powers of $M$ cancel in this ratio, while the extra factor roughly two per level survives.\n\nAt $d=9$, the displayed lower bound is $512/484=128/121>1$. That supplies a depth at which the claimed construction can produce a seed beating the quadratic ratio. It does not provide a small truth table: the source requires $M\\ge9^{d+1}$ and uses $n=(d+2)M^2(kr)^d$ raw bits, with $k=2M^2+1$ and $r=\\lceil\\sqrt M\\rceil$.\n\nFor an arbitrary proposed constant $C$, first choose a depth making the ratio exceed $C$, then choose the remaining parameters. Reversing that order and holding a small $M$ fixed would not follow the proof.\n\nThe chart is a plot of a proven expression within the source argument, not experimental measurements of giant Boolean functions.",
+      "source": "Theorem 1.1 proof, equations (7)-(10)."
+    },
+    {
+      "title": "Composition multiplies disjoint block witnesses",
+      "figure": "06-composition",
+      "caption": "Each color labels one Cartesian-product block. Two disjoint outer blocks and two disjoint inner blocks give four pairwise disjoint raw-coordinate blocks.",
+      "body": "In a composition $f\\circ g$, each input bit of $f$ is replaced by the output of a separate copy of $g$. A raw bit can change the final answer only if it changes its child and the corresponding outer coordinate is sensitive. This gives $s(f\\circ g)\\le s(f)s(g)$.\n\nAt the zero input, assuming $g(0)=0$, disjoint sensitive blocks combine by Cartesian products. If $C_i$ is a block of outer child indices and $D_j$ a block of raw positions within a child, use $C_i\\times D_j$. Distinct pairs $(i,j)$ remain disjoint. Flipping that set changes exactly the children in $C_i$, triggering the outer witness.\n\nThe colored grid makes this disjointness visible. It is a coordinate bookkeeping example; the block shapes are not extracted from a gigantic seed.\n\nIf one fixed seed has $b=\\operatorname{bs}(f,0)>s(f)^2$ and $f(0)=0$, repeated composition gives block sensitivity at least $b^m$ and sensitivity at most $s(f)^m$. Thus the exponent $\\alpha=\\log b/\\log s(f)$ exceeds two. This is how a strict finite ratio becomes an unbounded family with a fixed power separation.\n\nThe construction of a suitable seed remains indispensable; composition cannot manufacture the strict inequality from our introductory four-bit toy.",
+      "source": "Lemma 4.2 and Corollary 4.3."
+    }
+  ],
+  "glossary": [
+    [
+      "Total Boolean function",
+      "A zero-or-one output defined on every binary input of its fixed length."
+    ],
+    [
+      "Sensitivity at x",
+      "Number of individual bits that reverse the value at x."
+    ],
+    [
+      "Block sensitivity",
+      "Maximum number of disjoint nonempty flip sets that each reverse the value."
+    ],
+    [
+      "Joint sensitivity",
+      "Bits that reverse two distinct predicates simultaneously."
+    ],
+    [
+      "Tournament",
+      "An orientation of every pair of distinct vertices."
+    ],
+    [
+      "Composition",
+      "Replace each outer input bit by an independent child function output."
+    ]
+  ],
+  "limits": "The four-bit toy is exhaustively checked at every input, including a disjoint-block search. The recurrence coefficients and displayed depth ratio are checked arithmetically. This is not a reconstruction or exhaustive evaluation of the source's huge seed, nor an independent audit of its arbitrary-input recurrence proof. The source's attribution to earlier work, including Meiburg's tournament architecture, remains in the reproduced manuscript."
+}

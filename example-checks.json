@@ -1,0 +1,238 @@
+{
+  "scope": "Finite examples and source formulas; not full theorem verification.",
+  "papers": {
+    "van-der-waerden": {
+      "avoiding_colorings_n8": 6,
+      "avoiding_colorings_n9": 0,
+      "example": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "period_lambda": 144,
+      "reduced_periods": [
+        1,
+        1,
+        1,
+        1,
+        5,
+        1,
+        7,
+        1,
+        1,
+        5,
+        11,
+        1,
+        13,
+        7,
+        5,
+        1,
+        17,
+        1,
+        19,
+        5,
+        7,
+        11,
+        23,
+        1
+      ]
+    },
+    "sidorenko": {
+      "faces_extracted_from_source": [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          9
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          9
+        ],
+        [
+          1,
+          3,
+          10
+        ],
+        [
+          1,
+          7,
+          10
+        ],
+        [
+          1,
+          7,
+          12
+        ],
+        [
+          1,
+          9,
+          12
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          9
+        ],
+        [
+          3,
+          4,
+          11
+        ],
+        [
+          3,
+          10,
+          11
+        ],
+        [
+          4,
+          8,
+          9
+        ],
+        [
+          4,
+          8,
+          11
+        ],
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          5,
+          6,
+          11
+        ],
+        [
+          5,
+          7,
+          10
+        ],
+        [
+          5,
+          10,
+          11
+        ],
+        [
+          6,
+          7,
+          12
+        ],
+        [
+          6,
+          8,
+          11
+        ],
+        [
+          6,
+          8,
+          12
+        ],
+        [
+          8,
+          9,
+          12
+        ]
+      ],
+      "incidence_edges": 66,
+      "point_pairs": 33,
+      "pair_multiplicity": 2,
+      "star_path_homomorphisms": 12,
+      "toy_kernel_c4": "353/5000"
+    },
+    "unit-distances": {
+      "grid_points": 9,
+      "unordered_unit_pairs": 12,
+      "edge_marginal": [
+        0.16666666666666666,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.16666666666666666
+      ],
+      "wedge_joint": [
+        [
+          0.08333333333333333,
+          0.0,
+          0.08333333333333333,
+          0.0
+        ],
+        [
+          0.0,
+          0.25,
+          0.0,
+          0.08333333333333333
+        ],
+        [
+          0.08333333333333333,
+          0.0,
+          0.25,
+          0.0
+        ],
+        [
+          0.0,
+          0.08333333333333333,
+          0.0,
+          0.08333333333333333
+        ]
+      ],
+      "wedge_mutual_information_nats": 0.7237221922555708,
+      "rectangle_cross_ratio": "1"
+    },
+    "sensitivity": {
+      "toy_sensitivity_max": 2,
+      "toy_block_sensitivity_max": 2,
+      "zero_sensitivity": 0,
+      "zero_block_sensitivity": 2,
+      "recurrence_M81_initial": [
+        3,
+        243,
+        0,
+        0
+      ],
+      "recurrence_upper_step": [
+        291,
+        21870,
+        48,
+        2187
+      ],
+      "depth9_ratio": "128/121"
+    },
+    "matrix-multiplication": {
+      "matrix_product": [
+        [
+          19,
+          22
+        ],
+        [
+          43,
+          50
+        ]
+      ],
+      "separation_M3_survivors": 13,
+      "weight_zero_terms": 9,
+      "three_sector_survivors": 6,
+      "exact_growth_checks": 100
+    }
+  }
+}

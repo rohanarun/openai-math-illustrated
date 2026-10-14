@@ -1,0 +1,32 @@
+{
+  "van-der-waerden": {
+    "guide_pages": 9,
+    "original_pages": 25,
+    "expanded_pages": 34,
+    "figures": 6
+  },
+  "sidorenko": {
+    "guide_pages": 9,
+    "original_pages": 51,
+    "expanded_pages": 60,
+    "figures": 6
+  },
+  "unit-distances": {
+    "guide_pages": 9,
+    "original_pages": 53,
+    "expanded_pages": 62,
+    "figures": 6
+  },
+  "sensitivity": {
+    "guide_pages": 9,
+    "original_pages": 11,
+    "expanded_pages": 20,
+    "figures": 6
+  },
+  "matrix-multiplication": {
+    "guide_pages": 9,
+    "original_pages": 13,
+    "expanded_pages": 22,
+    "figures": 6
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "title": "How long can a coloring hide a progression?",
+  "subtitle": "An illustrated reader for superexponential van der Waerden bounds",
+  "source_title": "Quantitative Superexponential Bounds for van der Waerden Numbers",
+  "intro": "Color the positive integers with two colors. A run of equally spaced numbers is an arithmetic progression: $2,5,8$ has common difference three. A progression is monochromatic when all its entries have the same color, even if other colors occur between them. How long can an interval be colored before a monochromatic progression becomes unavoidable?\n\nThis is an avoidance problem, so a long successful coloring proves a \\emph{lower} bound. It says that the unavoidable point lies farther away. It does not say that every coloring of that length succeeds. The quantifiers are the heart of the question.\n\nThe source claims a construction whose avoided length grows superexponentially in the required progression length. Its argument combines circular coordinates, arithmetic dilation, geometric squared norms, probability, and a digit construction. This guide builds the intuition with small examples before explaining how those ingredients connect. The tiny colorings are checks of definitions, not miniature versions of the full asymptotic proof.",
+  "claim": "The source's Theorem 1.1 states that one absolute threshold $K_0$ works for all $r\\ge2$ and $k\\ge K_0$:\n\\[W_r(k)>k^{ck\\lfloor\\log_2r\\rfloor},\\qquad c=10^{-5}.\\]\nHere $W_r(k)$ is the least interval length forcing a monochromatic $k$-term progression in every $r$-coloring. For fixed $r$, the source concludes $W_r(k)^{1/k}\\to\\infty$. The charted formula supplies no numerical value for $K_0$.",
+  "chapters": [
+    {
+      "title": "Read the quantifiers through an eight-position example",
+      "figure": "01-coloring",
+      "caption": "An exhaustively checked coloring of eight positions avoids all monochromatic three-term progressions. The lower rows illustrate three possible spacings; all spacings are checked by the script.",
+      "body": "Start with the displayed eight-position coloring. A contiguous run is only one possible progression: step two and step three count too. To check the coloring, list every $a,a+d,a+2d$ with $d\\ge1$ and $a+2d\\le8$, then inspect the three colors. The script performs this complete check, rather than checking only the three rows drawn.\n\nIt also enumerates every binary coloring of nine positions and finds that none avoids every three-term progression. These two finite statements give $W_2(3)=9$: a witness at eight proves $W_2(3)>8$, while exhaustive failure at nine proves $W_2(3)\\le9$.\n\n\\paragraph{Why this is not the large theorem.} The source addresses arbitrary sufficiently large $k$. A finite search can settle this tiny case but cannot establish an eventual growth law for every larger $k$. The source instead describes families of colorings and bounds all the ways a bad progression could occur.\n\n\\paragraph{Try it.} Does a red-blue-red alternating coloring avoid a monochromatic three-term progression? No: positions $1,3,5$ already share a color. Regular-looking colorings can create the very patterns we want to avoid.",
+      "source": "Section 1: definition of W_r(k) and Theorem 1.1."
+    },
+    {
+      "title": "A circle has no cut; a coordinate interval does",
+      "figure": "02-circle",
+      "caption": "The residues 0, 5, 10, 2, 7 follow a constant step modulo 13. Representatives in an interval jump at the cut; their unwrapped values 0, 5, 10, 15, 20 remain affine.",
+      "body": "A cyclic group is a clock with a chosen number of positions. Adding five on a thirteen-position clock moves by the same amount every time. Yet the written representatives jump from ten to two because the display resets after twelve. Confusing the representatives with the underlying circular motion loses information.\n\nThe source uses a much larger cyclic group of order $q^D$. Its coordinate maps are $x_i(n)=n/q^i\\pmod1$ and a second family $y_i(n)=\\lambda x_i(n)$. A coordinate mesh records which short interval contains each coordinate. In the second family the intervals become finer near the cut, where an apparently short circular step can become a large change of real representative.\n\nThe proof needs a controlled alternative: a progression has enough of both outer colors, or its centered representatives follow a globally affine line. The little clock illustrates the obstacle, not a proof of that alternative. Getting a consistent lift in all coordinates is an obligation discharged by the paper's mesh and short-period arguments.\n\n\\paragraph{Vocabulary.} Affine means ``starting point plus step times index'': $u+jv$. A lift chooses real representatives for circular coordinates in a consistent way.",
+      "source": "Sections 2 and 5: cyclic coordinates, adaptive mesh, balanced-or-affine alternative."
+    },
+    {
+      "title": "Squared norm turns a line into a quadratic",
+      "figure": "03-norm",
+      "caption": "For the toy affine points (j,1), the squared norm is j²+1. A circle of a fixed radius meets this line at at most two points.",
+      "body": "For a vector $(x,y)$, its squared Euclidean norm is $x^2+y^2$. On the horizontal line $(j,1)$ it becomes $j^2+1$, which is quadratic rather than linear. The five points in the diagram therefore have squared norms $5,2,1,2,5$. Equal norm values occur symmetrically on the two sides of the nearest point to the origin.\n\nMore generally,\n\\[\\|u+jv\\|^2=\\|u\\|^2+2j\\langle u,v\\rangle+j^2\\|v\\|^2.\\]\nThe coefficients are fixed once the line is fixed. This limited structure helps count possible norm patterns along a progression.\n\nThe actual construction attaches a random flip to a key made from a coordinate box and an integer squared-norm band. Repeated occurrences of the same key reuse the same random bit. They are not fresh independent coin tosses. The source proves that each key occurs at most four times along the relevant progression and controls how many distinct key words need consideration.\n\nOur exact-circle picture has at most two intersections. It does not replace the source's four-occurrence result for boxes and rounded bands. Its role is to show why squared norms supply usable structure.",
+      "source": "Section 6: norm-indexed perturbation; Section 1 construction overview."
+    },
+    {
+      "title": "A dilation removes troublesome small periods",
+      "figure": "04-periods",
+      "caption": "In this arithmetic example, λ=144 contains the full powers of 2 and 3 needed for every h≤24. The reduced denominator h/gcd(h,144) is either 1 or greater than 4.",
+      "body": "Think of a rational circular step $t/h$. Multiplying by $\\lambda$ changes it to $\\lambda t/h$, whose reduced denominator is\n\\[s=\\frac{h}{\\gcd(h,\\lambda t)}.\\]\nIf $\\lambda$ contains all the relevant prime-power factors of $h$, that denominator collapses to one: the rational motion vanishes on the circle. Otherwise its remaining prime factors can be forced to be large.\n\nFor the plot, take $h\\le24$, cutoff four, $t=1$, and $\\lambda=2^4 3^2=144$. A denominator of twelve collapses to one; ten leaves five; twenty-one leaves seven. There are no remaining denominators two, three, or four. Every plotted value is computed with integer gcd arithmetic.\n\nThe source makes the analogous choice with a growing dimension $D$, cutoff $D^2$, and all potential periods up to $2\\lceil k^{1/2}\\rceil$. Lemma 2.1 proves that the residual period is one or exceeds $D^2$. This creates a clean separation of scales for the later geometric tests.\n\nThe sample parameters explain the arithmetic mechanism only. They are not a valid instance of all the source's simultaneous large-$k$ parameter requirements.",
+      "source": "Lemma 2.1 and equations (2.1)-(2.3)."
+    },
+    {
+      "title": "Many bad events can still have total probability below one",
+      "figure": "05-probability",
+      "caption": "The plotted ratio (k^0.9 log k)/k^0.95 tends to zero. It compares exponent scales from the proof overview, omitting constants; it is not a computed probability of success.",
+      "body": "Suppose there are $N$ bad events, each with probability at most $e^{-B}$. Even if the events overlap, the union bound gives probability at most $Ne^{-B}$ that any occurs. Writing $N=e^A$ reveals the useful comparison: $e^{A-B}<1$ when $A<B$. Independence is not needed for that final union bound, although it matters when estimating each event.\n\nThe source organizes progressions by their label and key words so that identical words do not get counted repeatedly as different constraints. Its overview gives a logarithmic count $O(k^{9/10}\\log k)$, compared with the rare-flip scale $pk=k^{19/20}$ for $p=k^{-1/20}$. Their ratio tends to zero because $\\log k$ grows more slowly than $k^{1/20}$.\n\nThis convergence is slow. The horizontal axis is already $\\log_{10}k$, not $k$. A plot of the bare expressions is not a usable threshold for the source theorem: hidden constants and all other parameter conditions must hold too.\n\nThe proof also uses local tests and a finite local lemma in constructing its outer coloring. This schematic union-bound calculation explains the final scale comparison without asserting that the entire construction is one independent random coloring.",
+      "source": "Sections 3-6; overview on original page 3."
+    },
+    {
+      "title": "Why the conclusion is stronger than beating one exponential",
+      "figure": "06-growth",
+      "caption": "The two-color lower-bound expression has logarithmic kth-root scale c log k. The constant line log 2 represents the kth root of 2^k. The source theorem applies only beyond its unspecified threshold.",
+      "body": "An exponential $A^k$ has constant $k$th root $A$. By contrast, $(k^{ck})^{1/k}=k^c$ grows without bound whenever $c>0$. Taking one more logarithm gives the straight line $c\\log k$ in the figure. Even a tiny fixed positive $c$ eventually exceeds every constant exponential base on this scale.\n\nThis does not mean the bound is numerically impressive at everyday values of $k$. Here $c=10^{-5}$, and the theorem has an unspecified sufficiently-large threshold. The distinction between eventual growth and useful finite sizes is essential.\n\nTo pass from two colors to arbitrary $r$, the source uses a deterministic digit product. Combining $\\lfloor\\log_2r\\rfloor$ binary color choices uses at most $r$ colors, which explains why that integer appears in the exponent. The transfer also has to control cyclic progressions and carries; simply writing binary labels is not the whole proof.\n\n\\paragraph{Check your understanding.} A successful coloring proves a lower bound on the unavoidable length. A theorem forcing a progression in every coloring proves an upper bound. Reversing those statements reverses the meaning of the result.",
+      "source": "Theorem 1.1 and Section 7: transfer to intervals and additional colors."
+    }
+  ],
+  "glossary": [
+    [
+      "Arithmetic progression",
+      "Equally spaced terms with a positive common difference."
+    ],
+    [
+      "Monochromatic",
+      "All selected terms have the same color."
+    ],
+    [
+      "Cyclic group",
+      "Addition with wraparound modulo an integer."
+    ],
+    [
+      "Affine lift",
+      "Consistent real representatives of the form u+jv."
+    ],
+    [
+      "Union bound",
+      "The probability of any bad event is at most the sum of their probabilities."
+    ],
+    [
+      "Superexponential here",
+      "For fixed color count, the kth root of W_r(k) tends to infinity."
+    ]
+  ],
+  "limits": "The guide checks the finite coloring search, the displayed period reductions, and the arithmetic behind the plots. It does not audit every mesh estimate, local-lemma dependency, word count, or cyclic-to-integer transfer. The original proof and bibliography follow unchanged in the expanded edition. Later coefficient refinements in separate repositories have their own assumptions and are not substituted for the source theorem here."
+}

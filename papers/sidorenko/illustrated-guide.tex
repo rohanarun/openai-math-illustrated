@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,graphicx,xcolor,booktabs,array,enumitem}
+\usepackage[letterpaper,margin=0.78in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=teal]{hyperref}
+\usepackage{fancyhdr}
+\definecolor{ink}{HTML}{172C3B}
+\definecolor{teal}{HTML}{087F82}
+\definecolor{blue}{HTML}{265DAB}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\footnotesize OpenAI math: independent illustrated reading editions}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{7pt}
+\setlength{\emergencystretch}{2em}
+\hypersetup{pdfauthor={Independent explanatory edition prepared with OpenAI Codex}}
+\begin{document}
+\begin{center}{\LARGE\bfseries Can a structured graph contain fewer patterns than randomness?}\par\vspace{12pt}{\large An illustrated reader for the proposed Sidorenko counterexample}\par\vspace{16pt}Independent reading edition, October 14, 2026\end{center}
+\section*{Start here}A graph is a collection of vertices and edges. A small graph can be used as a pattern to count inside a larger host graph. Sidorenko's question asks whether a bipartite pattern always appears at least as densely as the corresponding random benchmark with the same edge density.
+
+``Appears'' has a precise meaning here: the count includes edge-preserving maps that send different pattern vertices to the same host vertex. We begin with this convention because replacing it by a count of distinct copies changes the problem.
+
+The source claims a counterexample with a particular 35-vertex pattern. That pattern can be drawn and checked directly. The host graph that witnesses the deficit is reached through a much more elaborate weighted-kernel construction. Displaying the pattern alone is not displaying the whole counterexample. This reader separates the explicit combinatorics, the probability mechanism, and the difficult singular-configuration estimates.
+\paragraph{Reading prerequisites.} Ordinary arithmetic is enough for the opening examples. Later chapters introduce the specialized vocabulary; checking every original proof requires additional study.\par\textbf{Attribution.} Original manuscript by OpenAI. Added explanations and figures prepared with OpenAI Codex. This is not an official revision or independent theorem validation.\par\href{https://github.com/openai/math/tree/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026}{Pinned original manuscript and citation}.\newpage\section*{The source claim, precisely}Theorem 1.1 uses the incidence graph $H$ of 22 triples on 13 points. It states that there is a finite simple host $G$ with positive edge density for which
+\[t(H,G)<p(G)^{66},\quad t(H,G)=\frac{\operatorname{hom}(H,G)}{|V(G)|^{35}},\quad p(G)=\frac{2|E(G)|}{|V(G)|^2}.\]
+This is a claim about all homomorphisms, including noninjective ones. The finite examples below illustrate definitions and mechanisms; none is asserted to be that host $G$.\paragraph{How to read this edition.} Each chapter gives one concrete illustration, then explains how it connects to the source. Captions identify toys and original constructions. Source anchors use the original manuscript\textquotesingle s section and page numbering. The expanded PDF places this guide before the complete unchanged original PDF, preserving the original page numbers and bibliography.\subsection*{Your route through the argument}\begin{enumerate}\item Count maps, including repeated vertices
+\item The actual pattern is a point-face incidence graph
+\item Averaging one random sign retains a four-incidence interaction
+\item A kernel is a table of edge probabilities
+\item Small probability does not imply a small weighted contribution
+\item One strict deficit can be amplified, with a density caveat
+\end{enumerate}\paragraph{Verification scope.} The accompanying code checks the displayed finite examples and preserves original-file hashes. These checks do not replace the analytic, algebraic, asymptotic, or formal proof obligations in the source.\newpage\section*{Count maps, including repeated vertices}
+\begin{center}\includegraphics[width=\linewidth,height=2.35in,keepaspectratio]{figures/01-homomorphisms.pdf}\end{center}
+{\small\color{teal}\textbf{Figure 1.} For a three-vertex path mapped into a three-leaf star, there are 12 homomorphisms. Its density 12/4$^3$ exceeds the benchmark (6/4$^2$)$^2$.\par}
+Label a three-vertex path by left endpoint, middle, and right endpoint. Once its middle maps to a host vertex of degree $d$, both endpoints can independently choose any of that vertex's neighbors. There are $d^2$ choices, including choices that give both endpoints the same image. Summing over host vertices gives $\operatorname{hom}(P_3,G)=\sum_v d(v)^2$.
+
+The star has degrees $3,1,1,1$, so the total is $9+1+1+1=12$. Dividing by $4^3=64$ gives $3/16$. Its edge density in the source convention is $2\cdot3/4^2=3/8$, whose square is $9/64$. The path density is larger, as Sidorenko's inequality predicts for this pattern.
+
+The denominator in $p(G)$ is $n^2$, not $n(n-1)$. It corresponds to two independent uniformly chosen vertices, with equal choices contributing no edge in a simple graph. The familiar proportion of unordered pairs that are edges is a different finite normalization.
+
+A constant kernel of mean $p$ gives exactly $p^{|E(H)|}$. That is the clean benchmark used throughout. A finite random graph has additional effects from vertex collisions, so its finite homomorphism expectation should not be casually identified with that expression.
+{\footnotesize\color{blue}\textbf{Source anchor:} Section 1: density definitions; Section 8 distinguishes injective counts.\par}
+\newpage\section*{The actual pattern is a point-face incidence graph}
+\begin{center}\includegraphics[width=\linewidth,height=2.35in,keepaspectratio]{figures/02-incidence.pdf}\end{center}
+{\small\color{teal}\textbf{Figure 2.} Each dark cell is an edge of the source pattern. Every face column has three entries; the 13 point rows and 22 face columns represent 35 distinct vertices.\par}
+A triple system is a list of three-element subsets of a set of points. Build a graph by making one vertex for every point and a different vertex for every triple, then joining a point to a triple exactly when the triple contains it. All edges run between the two kinds of vertices, so this graph is bipartite.
+
+The figure is extracted from Table 1 of the original TeX source. It has 22 columns, each with three entries, giving $22\cdot3=66$ edges. Its two parts have 13 and 22 vertices, giving 35 in all. A point labeled zero and a face labeled zero are still different vertices.
+
+The script also enumerates unordered pairs of points within the triples. There are 33 such pairs, and every pair occurs in exactly two faces. Thus the $22\cdot3=66$ face-pair occurrences are paired up exactly. This double occurrence is what allows a sign used on one face to interact with its counterpart on another.
+
+The source needs additional finite properties: connectedness, special face exposure orders, bit-label separation, and color refinement that distinguishes vertices. Our simple incidence-count checks do not establish all those properties; Section 2 gives the certificates used in the argument.
+{\footnotesize\color{blue}\textbf{Source anchor:} Section 2, Table 1 and Proposition 2.1.\par}
+\newpage\section*{Averaging one random sign retains a four-incidence interaction}
+\begin{center}\includegraphics[width=\linewidth,height=2.35in,keepaspectratio]{figures/03-parity.pdf}\end{center}
+{\small\color{teal}\textbf{Figure 3.} Faces 0 and 1 share points 0 and 1. Averaging the product over an independent uniform sign $\eta$ removes the linear terms and retains 1+AB.\par}
+Let $\eta$ be equally likely to be $+1$ or $-1$. Then $E\eta=0$ and $\eta^2=1$. For fixed signs $A$ and $B$,
+\[E[(1+\eta A)(1+\eta B)]=1+AB.\]
+Expanding gives $1+\eta(A+B)+AB$; the middle term averages to zero. If $AB=1$, the result is two. If $AB=-1$, it is zero.
+
+In the source, $A$ is the product of two incidence signs on one face and $B$ is the corresponding product on the other face containing the same point pair. The remaining $AB$ term therefore involves four incidences. A pair that occurs on only one selected face would instead leave no such interaction.
+
+This identity by itself produces a nonnegative factor, not the theorem's strict negative correction. The kernel construction combines selected active coordinate supports, opposite sign biases, and type weights. It arranges cancellation of simpler moments while making a particular combined correction negative. The large finite-field model must then approximate the intended sign calculation with sufficiently controlled error.
+
+\paragraph{Takeaway.} Averaging can erase unwanted terms while retaining a higher-order dependency. The important question is exactly which terms survive, not whether the ingredients look random.
+{\footnotesize\color{blue}\textbf{Source anchor:} Section 1 negative-correlation overview and Section 3 activation construction.\par}
+\newpage\section*{A kernel is a table of edge probabilities}
+\begin{center}\includegraphics[width=\linewidth,height=2.35in,keepaspectratio]{figures/04-kernel.pdf}\end{center}
+{\small\color{teal}\textbf{Figure 4.} A two-type toy kernel has within-type probability 0.8 and between-type probability 0.2. Its edge mean is 0.5, but its four-cycle density is 0.0706 rather than 0.0625.\par}
+Assign each sampled vertex a type. A kernel $W(a,b)$ tells us the probability of an edge between vertices of types $a$ and $b$. The diagram uses two equally likely types. Averaging its four entries gives $(0.8+0.2+0.2+0.8)/4=0.5$.
+
+For a pattern, independently assign a type to every pattern vertex, multiply the edge probabilities along all its edges, and average over type assignments. For a four-cycle in this equal-weight two-type example, this is $\operatorname{tr}(W^4)/2^4=353/5000=0.0706$. The constant-$0.5$ kernel gives $0.5^4=0.0625$. Same edge mean, different higher-order pattern density.
+
+This is a positive four-cycle example and does not disprove Sidorenko. Its purpose is to show what information the edge mean fails to record. The source's much larger kernel is built for its special 35-vertex pattern, first in an oriented rectangular form and then in a symmetric form suitable for sampling an ordinary graph.
+
+Once a strict kernel deficit is established with controlled approximation, a sampling argument can retain it in a finite simple graph. That transfer is a theorem-level step in the source, not evidence provided by our two-by-two table.
+{\footnotesize\color{blue}\textbf{Source anchor:} Section 1 kernel definitions; Section 3 construction and finite-host transfer.\par}
+\newpage\section*{Small probability does not imply a small weighted contribution}
+\begin{center}\includegraphics[width=\linewidth,height=2.35in,keepaspectratio]{figures/05-weighted-tail.pdf}\end{center}
+{\small\color{teal}\textbf{Figure 5.} A toy event has probability 1/q but weight q$^2$, so its contribution to the expectation is q. The two curves deliberately move in opposite directions.\par}
+Suppose a rare event occurs with probability one in a million but contributes a trillion when it occurs. Its average contribution is one million. Rarity alone does not justify discarding it.
+
+The source faces this issue for singular matrix differences. Their probability is $O(q^{-1})$, but normalized rank-layer indicators can grow with $q$. Multiplying probability by a large weight can defeat the naive probability bound. The necessary claim is that the \emph{weighted total} tends to zero.
+
+The paper represents symmetric matrices by Lagrangian graph subspaces. The kernel of a matrix difference becomes an intersection of two subspaces. This translates rank defects into dimensions that can be counted. Global profile estimates, propagation through the connected complex, and special treatment of equality cases are then used to obtain strict decay.
+
+The plot is deliberately generic: $q^{-1}\cdot q^2=q$. It is not the actual singular-tail exponent of the construction. It explains why that long analytic and combinatorial part of the paper cannot be replaced by ``singular matrices are rare.''
+
+\paragraph{Check your understanding.} If the event weight were bounded by a constant, a probability tending to zero would suffice. The difficulty is the interaction between rare events and growing weights.
+{\footnotesize\color{blue}\textbf{Source anchor:} Sections 5-7; the singular-contribution discussion on original page 3.\par}
+\newpage\section*{One strict deficit can be amplified, with a density caveat}
+\begin{center}\includegraphics[width=\linewidth,height=2.35in,keepaspectratio]{figures/06-amplification.pdf}\end{center}
+{\small\color{teal}\textbf{Figure 6.} If an initial normalized pattern-density ratio were 0.9, independent tensor powers would give 0.9\textasciicircum{}m. The displayed 0.9 is illustrative, not a measured ratio for the source host.\par}
+Suppose a constructed host or kernel has normalized ratio $\rho=t(H,W)/(EW)^{66}<1$. Tensoring independent copies multiplies both the pattern densities and the relevant powers of edge means. The new ratio is $\rho^m$, which tends to zero.
+
+The curve uses $\rho=0.9$ simply to make the multiplication visible. Ten copies give about $0.349$; thirty give about $0.0424$. This is the logic behind a result saying the normalized ratio can be made smaller than any prescribed positive constant.
+
+However, the edge density can change under this operation. Arbitrarily strong relative deficit with varying density is different from a fixed deficit at one positive limiting density. The source states these as separate consequences and uses balanced blow-ups for the injective-copy formulation.
+
+Its forcing-conjecture consequence is different again: it constructs a nonconstant kernel whose edge and special-pattern densities match the constant benchmark at one density, while another statistic detects nonrandom structure. Matching a selected pair of measurements need not force full quasirandomness.
+
+These consequences depend on the original strict deficit and the corresponding transfer arguments. The geometric decay calculation alone does not supply a counterexample.
+{\footnotesize\color{blue}\textbf{Source anchor:} Section 8 and Corollaries 1.2-1.3.\par}
+\newpage\section*{A vocabulary you can return to}
+\paragraph{Bipartite graph}Vertices split into two parts; every edge crosses between the parts.
+\paragraph{Homomorphism}An edge-preserving vertex map; repeated images are allowed.
+\paragraph{Incidence graph}A graph joining points to the subsets containing them.
+\paragraph{Kernel / graphon}A weighted model of edge probabilities and pattern densities.
+\paragraph{Singular matrix}A matrix with a nontrivial kernel, hence deficient rank.
+\paragraph{Quasirandom}A graph sequence whose fixed-pattern densities approach random-model densities.
+\section*{What this edition checks}Verified examples include source-table extraction, incidence counts, pair multiplicities, the path count in a star, and the two-type kernel calculation. The rank-layer limit, weighted singular estimates, and finite-host transfer are substantial proof obligations not independently certified here. In particular, no small explicit host graph with the claimed deficit is supplied by this guide.
+\paragraph{A useful self-test.} Explain what each plotted quantity counts, which examples are illustrative, and where the source needs a statement for every input or every sufficiently large size. If a picture seems to establish the full theorem by itself, revisit its caption and source anchor.\paragraph{Sources and reuse.}\href{https://github.com/openai/math/tree/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026}{A counterexample to Sidorenko's conjecture}, OpenAI. Original bibliography and manuscript-specific citation are included with the source. Source snapshot: \texttt{1581d4cbdd69}. This derivative is distributed under Apache-2.0 with the original attribution; see the repository LICENSE and NOTICE.\end{document}
